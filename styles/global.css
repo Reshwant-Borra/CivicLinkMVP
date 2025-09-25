@@ -1,0 +1,31 @@
+/* Global reset and base styles */
+html, body, #__next {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: var(--font-size);
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  margin: 0.5em 0;
+}
+
+p {
+  margin: 0.5em 0;
+}
+
+ul {
+  padding-left: 1.25em;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}

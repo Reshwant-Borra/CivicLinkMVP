@@ -1,0 +1,25 @@
+/* Design tokens and theme variables */
+
+/* Default (light theme) variables */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --font-size: 16px;      /* base font size for 'medium' text */
+}
+
+/* Dark theme overrides */
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #f0f0f0;
+}
+
+/* Text size overrides */
+[data-size="small"] {
+  --font-size: 14px;
+}
+[data-size="medium"] {
+  --font-size: 16px;
+}
+[data-size="large"] {
+  --font-size: 20px;
+}
