@@ -35,6 +35,33 @@ Global theming (dark mode and text size) is handled via CSS variables defined in
 ### Install Dependencies:
 Run `npm install` (or yarn) to install the required packages.
 
+### Python Setup (for Translation Feature):
+The translation feature requires Python dependencies. Follow these steps:
+
+#### 1. Install Python Dependencies:
+```bash
+# Install Python packages for the translation backend
+pip install -r requirements.txt
+```
+
+#### 2. Start the Python Backend:
+```bash
+# Run the Flask translation service (required for translation feature)
+python server/translation/main.py
+```
+This will start the Python backend on `http://localhost:8000`
+
+#### 3. Verify Python Backend:
+```bash
+# Test the health endpoint
+curl http://localhost:8000/health
+
+# Test translation endpoint
+curl -X POST -H "Content-Type: application/json" -d '{"text":"Hello","target_lang":"es"}' http://localhost:8000/translate
+```
+
+**Note:** The Python backend must be running for the translation feature to work. The Next.js frontend will connect to the Python service at `http://localhost:8000`.
+
 ### Environment Variables:
 Copy `.env.example` to `.env` in the project root, and fill in the necessary API keys:
 
@@ -185,8 +212,13 @@ git checkout -b feature/developer-5-main-app
 npm run dev
 
 # For Developer 2 (Translation), also start Python backend
+# Make sure to install Python dependencies first: pip install -r requirements.txt
 python server/translation/main.py
 ```
+
+**Important:** For the translation feature to work, you need both servers running:
+- Next.js frontend: `npm run dev` (port 3000)
+- Python backend: `python server/translation/main.py` (port 8000)
 
 ### **4. Test Your Feature**
 - **Developer 1:** http://localhost:3000/deadlines
