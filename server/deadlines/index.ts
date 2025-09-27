@@ -5,6 +5,7 @@ export interface Deadline {
   event: string;
   date: string;
   details?: string;
+  type?: string;
 }
 
 export interface DeadlinesResponse {
@@ -54,7 +55,8 @@ export async function fetchDeadlinesByZip(zip: string, apiKey: string): Promise<
         if (election.electionDay) {
           deadlines.push({
             event: "Election Day",
-            date: election.electionDay
+            date: election.electionDay,
+            type: "election"
           });
         }
       }
@@ -114,7 +116,8 @@ export function formatElectionData(electionData: any): Deadline[] {
   if (electionData.election && electionData.election.electionDay) {
     deadlines.push({
       event: "Election Day",
-      date: electionData.election.electionDay
+      date: electionData.election.electionDay,
+      type: "election"
     });
   }
 
